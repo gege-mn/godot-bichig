@@ -118,6 +118,10 @@ Import the font with antialiasing off, hinting none and subpixel positioning dis
 whole multiple of its design size, and keep the label at whole-pixel positions. The label
 turns the text with an exact matrix, so every pixel stays on the grid.
 
+For Gege Pixel and Gege Pixel Shahaa the design size is 16: use 16, 32, 48 and so on. At a
+size between them a stroke of one pixel comes out one pixel thick in one place and two in
+another, as with any pixel font.
+
 An outline on such a font is the engine's own, as on a `Label`: without antialiasing a
 one-pixel outline comes out uneven.
 
