@@ -3,6 +3,24 @@
 Vertical text for the traditional Mongolian script in Godot 4: columns run top to bottom and
 follow each other left to right.
 
+![A dialogue box filling column by column](docs/dialogue.gif)
+
+*Rendered with godot-bichig 0.1.0 in Godot 4.7.2, set in
+[Gege Pixel](https://pixel.gege.mn).*
+
+## Gege Pixel
+
+The font in the picture is [**Gege Pixel**](https://pixel.gege.mn), a pixel font for the
+traditional Mongolian script, drawn by hand, pixel by pixel, and made for games: dialogue,
+menus, quest logs. It is free for personal use, with licences for commercial games, and this
+addon is how it is set in Godot. Every string of the font's test suite is drawn by this addon
+exactly as a browser draws it.
+
+The addon is not tied to it: any font that shapes the script works, such as Noto Sans
+Mongolian, which the demo ships.
+
+## Why
+
 Godot shapes Mongolian correctly, but only along a horizontal line. Its controls have no
 vertical mode, and the text server's `ORIENTATION_VERTICAL` stacks the letters one by one
 without joining them. Turning a `Label` a quarter gives the right columns in the wrong order,
@@ -20,7 +38,7 @@ them under `writing-mode: vertical-lr`.
 ## Install
 
 Copy `addons/bichig` into your project and enable **Bichig** under Project Settings → Plugins.
-Godot 4.4 or later, with the default (advanced) text server.
+Godot 4.4 or later (tested on 4.4.1 and 4.7.2), with the default (advanced) text server.
 
 ## Use
 
@@ -40,7 +58,7 @@ add_child(label)
 | `font`, `font_size` | Fall back to the theme's `Label` font and size. |
 | `font_color` | |
 | `outline_size`, `outline_color` | |
-| `autowrap` | Breaks a column longer than the label is tall. The label's minimum width follows the columns. |
+| `autowrap` | Breaks a column longer than the label is tall; off by default, as on a `Label`. The label's minimum width follows the columns. |
 | `alignment` | `TOP`, `CENTER` or `BOTTOM` within the label's height. |
 | `column_spacing` | Extra pixels between columns. |
 | `visible_characters`, `visible_ratio` | Draw only the start of the text. Letters keep the forms they have in the whole word. |
@@ -84,7 +102,15 @@ func _draw() -> void:
 ```
 
 `get_size()` gives the width of the columns and the length of the longest one, `wrap_height`
-breaks columns, and `get_column_count()` counts them.
+breaks columns, and `get_column_count()` counts them. Drawing sets the canvas item's drawing
+transform and leaves it at identity; if you set one with `draw_set_transform`, pass it as the
+last argument of `draw` and `draw_outline`.
+
+### Wrapping
+
+A column breaks where the text may break, as in a browser: at a space, never before a closing
+mark or an upright `？`, and a space at the end of a column does not count against its length.
+A word longer than the column is left whole.
 
 ### Pixel fonts
 
@@ -94,17 +120,20 @@ turns the text with an exact matrix, so every pixel stays on the grid.
 
 ## Demo
 
-Open the project in Godot and run it. It ships Noto Sans Mongolian (SIL OFL, see
-`demo/fonts/OFL.txt`). To try another font:
+Open the project in Godot and run it: a hero walks past six things, and each fills a dialogue
+box column by column. Walk with the arrow keys, or leave it and the hero walks on alone. It
+ships Noto Sans Mongolian (SIL OFL, see `demo/fonts/OFL.txt`). To try another font, pass it
+and its size:
 
-    godot --path . -- path/to/font.ttf 16 3
+    godot --path . -- path/to/font.ttf 16
 
-The arguments are the font, its size and a window scale.
+Two more scenes take the same arguments and a window scale:
 
-`demo/compare.tscn` sets the same text three ways, side by side: a `Label` turned a quarter,
-the text server's vertical orientation, and `BichigLabel`.
+- `demo/demo.tscn`: a wrapped label that reveals itself, with two buttons.
+- `demo/compare.tscn`: the same text as a `Label` turned a quarter, in the text server's
+  vertical orientation, and as a `BichigLabel`.
 
-    godot --path . res://demo/compare.tscn -- path/to/font.ttf 16 2
+      godot --path . res://demo/compare.tscn -- path/to/font.ttf 16 2
 
 ## Not yet
 

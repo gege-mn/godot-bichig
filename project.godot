@@ -3,8 +3,13 @@ config_version=5
 [application]
 
 config/name="godot-bichig"
-run/main_scene="res://demo/demo.tscn"
+run/main_scene="res://demo/game.tscn"
 config/features=PackedStringArray("4.4")
+
+[display]
+
+window/size/viewport_width=1152
+window/size/viewport_height=776
 
 [editor_plugins]
 

@@ -7,6 +7,8 @@ extends Control
 @export_multiline var text := "":
 	set(value):
 		text = value
+		if visible_ratio < 1.0:
+			visible_characters = int(text.length() * visible_ratio)
 		_changed()
 ## Falls back to the theme's Label font.
 @export var font: Font:
@@ -35,7 +37,7 @@ extends Control
 		outline_color = value
 		queue_redraw()
 ## Breaks a column that is longer than the label is tall.
-@export var autowrap := true:
+@export var autowrap := false:
 	set(value):
 		autowrap = value
 		_changed()
@@ -55,10 +57,14 @@ extends Control
 @export var visible_characters := -1:
 	set(value):
 		visible_characters = value
+		if value < 0:
+			visible_ratio = 1.0
 		queue_redraw()
 ## The share of the characters that is drawn, to tween from 0 to 1.
 @export_range(0, 1, 0.001) var visible_ratio := 1.0:
 	set(value):
+		if value == visible_ratio:
+			return
 		visible_ratio = value
 		visible_characters = -1 if value >= 1.0 else int(text.length() * value)
 

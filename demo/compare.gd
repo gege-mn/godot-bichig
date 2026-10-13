@@ -71,6 +71,7 @@ func _ready() -> void:
 				label.text = sample
 				label.font = face
 				label.font_size = em
+				label.autowrap = true
 				label.position = area.position
 				label.size.y = area.size.y
 				panel.add_child(label)

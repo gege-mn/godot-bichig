@@ -44,7 +44,7 @@ func _notification(what: int) -> void:
 
 
 func _get_minimum_size() -> Vector2:
-	return _shaped().get_size() + _style().get_minimum_size()
+	return _shaped().get_size() + get_theme_stylebox(&"normal", &"Button").get_minimum_size()
 
 
 func _restyled() -> void:
@@ -71,26 +71,39 @@ func _state() -> StringName:
 	match get_draw_mode():
 		DRAW_DISABLED:
 			return &"disabled"
-		DRAW_PRESSED, DRAW_HOVER_PRESSED:
+		DRAW_PRESSED:
 			return &"pressed"
+		DRAW_HOVER_PRESSED:
+			return &"hover_pressed"
 		DRAW_HOVER:
 			return &"hover"
 	return &"normal"
 
 
 func _style() -> StyleBox:
-	return get_theme_stylebox(_state(), &"Button")
+	var state := _state()
+	if state == &"hover_pressed" and not has_theme_stylebox(state, &"Button"):
+		state = &"pressed"
+	return get_theme_stylebox(state, &"Button")
+
+
+# From 4.6 a button shows its focus only when the keyboard gave it.
+func _focused() -> bool:
+	return has_focus() if Engine.get_version_info().hex < 0x040600 else call(&"has_focus", true)
 
 
 func _draw() -> void:
 	var style := _style()
 	draw_style_box(style, Rect2(Vector2.ZERO, size))
-	if has_focus():
+	var focused := _focused()
+	if focused:
 		draw_style_box(get_theme_stylebox(&"focus", &"Button"), Rect2(Vector2.ZERO, size))
 	var layout := _shaped()
 	var state := _state()
-	var color := get_theme_color(&"font_color" if state == &"normal" else StringName("font_%s_color" % state), &"Button")
+	var named := &"font_color" if state == &"normal" else StringName("font_%s_color" % state)
+	if state == &"normal" and focused:
+		named = &"font_focus_color"
 	var inner := Rect2(style.get_offset(), size - style.get_minimum_size())
 	var area := layout.get_size()
 	var at := inner.position + Vector2(floorf((inner.size.x - area.x) / 2.0), 0)
-	layout.draw(get_canvas_item(), at, color, inner.size.y)
+	layout.draw(get_canvas_item(), at, get_theme_color(named, &"Button"), inner.size.y)
