@@ -55,6 +55,11 @@ Open the project in Godot and run it. It ships Noto Sans Mongolian (SIL OFL, see
 
 The arguments are the font, its size and a window scale.
 
+`demo/compare.tscn` sets the same text three ways, side by side: a `Label` turned a quarter,
+the text server's vertical orientation, and `BichigLabel`.
+
+    godot --path . res://demo/compare.tscn -- path/to/font.ttf 16 2
+
 ## Not yet
 
 Text entry, rich text, a caret or selection, and justified columns.
