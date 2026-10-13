@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://demo/demo.gd" id="1"]
 [ext_resource type="Script" path="res://addons/bichig/bichig_label.gd" id="2"]
 [ext_resource type="FontFile" path="res://demo/fonts/NotoSansMongolian-Regular.ttf" id="3"]
+[ext_resource type="Script" path="res://addons/bichig/bichig_button.gd" id="4"]
 
 [node name="Demo" type="Control"]
 layout_mode = 3
@@ -16,7 +17,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.09, 0.1, 0.13, 1)
+color = Color(0.2, 0.25, 0.36, 1)
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -28,9 +29,29 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="Label" type="Control" parent="Margin"]
+[node name="Row" type="HBoxContainer" parent="Margin"]
 layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Control" parent="Margin/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
 script = ExtResource("2")
 font = ExtResource("3")
 font_size = 28
 column_spacing = 8.0
+
+[node name="Replay" type="BaseButton" parent="Margin/Row"]
+layout_mode = 2
+size_flags_vertical = 0
+script = ExtResource("4")
+font = ExtResource("3")
+font_size = 28
+
+[node name="Outline" type="BaseButton" parent="Margin/Row"]
+layout_mode = 2
+size_flags_vertical = 0
+toggle_mode = true
+script = ExtResource("4")
+font = ExtResource("3")
+font_size = 28

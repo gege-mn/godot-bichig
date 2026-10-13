@@ -8,10 +8,14 @@ vertical mode, and the text server's `ORIENTATION_VERTICAL` stacks the letters o
 without joining them. Turning a `Label` a quarter gives the right columns in the wrong order,
 right to left.
 
-`BichigLabel` lets the engine shape each line horizontally, turns it a quarter clockwise, and
+This addon lets the engine shape each line horizontally, turns it a quarter clockwise, and
 lays the columns out left to right. Characters that Unicode stands upright in a vertical line
 (CJK, fullwidth forms, `‼`, emoji) are set upright in their `vert` forms, as a browser sets
 them under `writing-mode: vertical-lr`.
+
+- `BichigLabel`: a label, with wrapping, an outline and a reveal for dialogue.
+- `BichigButton`: a button drawn with the theme's `Button` styles and colours.
+- `BichigText`: the layout by itself, to draw vertical text in any node of your own.
 
 ## Install
 
@@ -20,7 +24,7 @@ Godot 4.4 or later, with the default (advanced) text server.
 
 ## Use
 
-Add a `BichigLabel` node, or from code:
+### BichigLabel
 
 ```gdscript
 var label := BichigLabel.new()
@@ -35,10 +39,52 @@ add_child(label)
 | `text` | A line break starts a new column. |
 | `font`, `font_size` | Fall back to the theme's `Label` font and size. |
 | `font_color` | |
+| `outline_size`, `outline_color` | |
 | `autowrap` | Breaks a column longer than the label is tall. The label's minimum width follows the columns. |
 | `alignment` | `TOP`, `CENTER` or `BOTTOM` within the label's height. |
 | `column_spacing` | Extra pixels between columns. |
+| `visible_characters`, `visible_ratio` | Draw only the start of the text. Letters keep the forms they have in the whole word. |
 | `language` | Passed to the shaper; `mn` by default. |
+
+A line of dialogue that writes itself out:
+
+```gdscript
+label.visible_ratio = 0.0
+create_tween().tween_property(label, "visible_ratio", 1.0, 2.0)
+```
+
+### BichigButton
+
+A `BaseButton`, so `pressed`, `toggle_mode`, `disabled`, focus and shortcuts work as on any
+button. It takes `text`, `font`, `font_size`, `alignment`, `column_spacing` and `language`, and
+draws the `normal`, `hover`, `pressed`, `disabled` and `focus` styles and the font colours of
+the theme's `Button`.
+
+```gdscript
+var button := BichigButton.new()
+button.text = tr("START")
+button.pressed.connect(start)
+```
+
+### BichigText
+
+For a node that draws itself: a name over a character, a sign, a menu of your own.
+
+```gdscript
+var title := BichigText.new()
+
+func _ready() -> void:
+	title.font = preload("res://fonts/my_mongolian_font.ttf")
+	title.font_size = 16
+	title.text = tr("TITLE")
+
+func _draw() -> void:
+	title.draw_outline(get_canvas_item(), Vector2.ZERO, 1, Color.BLACK)
+	title.draw(get_canvas_item(), Vector2.ZERO, Color.WHITE)
+```
+
+`get_size()` gives the width of the columns and the length of the longest one, `wrap_height`
+breaks columns, and `get_column_count()` counts them.
 
 ### Pixel fonts
 
@@ -62,7 +108,7 @@ the text server's vertical orientation, and `BichigLabel`.
 
 ## Not yet
 
-Text entry, rich text, a caret or selection, and justified columns.
+Text entry, rich text, a caret or selection, icons on buttons, and justified columns.
 
 ## Development
 
