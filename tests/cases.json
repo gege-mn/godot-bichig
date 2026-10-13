@@ -1,0 +1,118 @@
+[
+	{
+		"name": "word",
+		"text": "ᠳᠤᠷᠠᠰᠤᠮᠵᠢ᠎ᠨᠤᠭᠤᠳ᠎ᠤᠨ",
+		"wrap": 0
+	},
+	{
+		"name": "name",
+		"text": "ᠭᠡᠭᠡ",
+		"wrap": 0
+	},
+	{
+		"name": "menu-entry",
+		"text": "ᠰᠢᠨ᠎ᠡ ᠲᠣᠭᠯᠠᠭᠠᠮ",
+		"wrap": 0
+	},
+	{
+		"name": "line",
+		"text": "ᠬᠥᠭᠵᠢᠭᠦᠯᠳᠡᠭ ᠮᠠᠱ᠌ᠢᠨ᠋᠎ᠲᠠᠢ ᠪᠦᠬᠦ ᠭᠡᠭᠡ ᠻᠠᠷᠲ ᠬᠢᠯᠪᠠᠷ ᠷᠠᠳᠢᠣ᠋",
+		"wrap": 0
+	},
+	{
+		"name": "vowel-separator",
+		"text": "ᠳᠤᠷᠠᠰᠤᠮᠵᠢ᠎ᠨᠤᠭᠤᠳ᠎ᠤᠨ",
+		"wrap": 0
+	},
+	{
+		"name": "variation-selector",
+		"text": "ᠯᠠᠲ᠋ᠧᠯᠢᠶᠡᠷ",
+		"wrap": 0
+	},
+	{
+		"name": "final-n-before-separator",
+		"text": "ᠠᠨ᠎ᠠ",
+		"wrap": 0
+	},
+	{
+		"name": "comma-stop-question",
+		"text": "ᠬᠦᠦ ᠮᠢᠨᠢ᠂ ᠬᠣᠯᠠ᠎ᠠᠴᠠ ᠢᠷᠡᠪᠡ ᠦᠦ？ ᠭᠠᠯ ᠳᠡᠭᠡᠷ᠎ᠡ ᠰᠠᠭᠤᠭᠠᠳ ᠳᠤᠯᠠᠭᠠᠴᠠ᠃",
+		"wrap": 0
+	},
+	{
+		"name": "title-brackets",
+		"text": "《ᠭᠡᠭᠡ》",
+		"wrap": 0
+	},
+	{
+		"name": "fullwidth-brackets",
+		"text": "（ᠰᠡᠳᠬᠢᠯ᠎ᠳᠦ᠎ᠪᠡᠨ）！",
+		"wrap": 0
+	},
+	{
+		"name": "double-marks",
+		"text": "ᠯᠠᠲ᠋ᠧᠯᠢᠶᠡᠷ‼ ᠦᠭᠡᠰ᠎ᠢᠶᠡᠨ⁈",
+		"wrap": 0
+	},
+	{
+		"name": "ascii-and-latin",
+		"text": "(ᠰᠡᠳᠬᠢᠯ᠎ᠳᠦ᠎ᠪᠡᠨ) Godot 4",
+		"wrap": 0
+	},
+	{
+		"name": "digits",
+		"text": "᠑᠒᠓᠔᠕᠖᠗᠘᠙᠐",
+		"wrap": 0
+	},
+	{
+		"name": "wrapped-5",
+		"text": "ᠬᠦᠦ ᠮᠢᠨᠢ᠂ ᠬᠣᠯᠠ᠎ᠠᠴᠠ ᠢᠷᠡᠪᠡ ᠦᠦ？ ᠭᠠᠯ ᠳᠡᠭᠡᠷ᠎ᠡ ᠰᠠᠭᠤᠭᠠᠳ ᠳᠤᠯᠠᠭᠠᠴᠠ᠃",
+		"wrap": 5
+	},
+	{
+		"name": "wrapped-7-two-paragraphs",
+		"text": "ᠮᠣᠷᠢ ᠮᠢᠨᠢ ᠶᠠᠳᠠᠷᠠᠵᠡᠢ᠃ ᠥᠨᠦ ᠰᠥᠨᠢ ᠡᠨᠳᠡ ᠬᠣᠨᠤᠶ᠎ᠠ᠃\nᠠᠪᠳᠠᠷ᠎ᠠ ᠴᠣᠣᠵᠢ᠎ᠲᠠᠢ ᠪᠠᠶᠢᠨ᠎ᠠ᠃ ᠲᠦᠯᠬᠢᠭᠦᠷ ᠬᠡᠷᠡᠭᠲᠡᠢ᠃",
+		"wrap": 7
+	},
+	{
+		"name": "reveal-half",
+		"text": "ᠬᠦᠦ ᠮᠢᠨᠢ᠂ ᠬᠣᠯᠠ᠎ᠠᠴᠠ ᠢᠷᠡᠪᠡ ᠦᠦ？ ᠭᠠᠯ ᠳᠡᠭᠡᠷ᠎ᠡ ᠰᠠᠭᠤᠭᠠᠳ ᠳᠤᠯᠠᠭᠠᠴᠠ᠃",
+		"wrap": 5,
+		"visible": 29
+	},
+	{
+		"name": "reveal-none",
+		"text": "ᠬᠦᠦ ᠮᠢᠨᠢ᠂ ᠬᠣᠯᠠ᠎ᠠᠴᠠ ᠢᠷᠡᠪᠡ ᠦᠦ？ ᠭᠠᠯ ᠳᠡᠭᠡᠷ᠎ᠡ ᠰᠠᠭᠤᠭᠠᠳ ᠳᠤᠯᠠᠭᠠᠴᠠ᠃",
+		"wrap": 5,
+		"visible": 0
+	},
+	{
+		"name": "align-center",
+		"text": "ᠬᠦᠦ ᠮᠢᠨᠢ᠂ ᠬᠣᠯᠠ᠎ᠠᠴᠠ ᠢᠷᠡᠪᠡ ᠦᠦ？ ᠭᠠᠯ ᠳᠡᠭᠡᠷ᠎ᠡ ᠰᠠᠭᠤᠭᠠᠳ ᠳᠤᠯᠠᠭᠠᠴᠠ᠃",
+		"wrap": 6,
+		"alignment": 1
+	},
+	{
+		"name": "align-bottom",
+		"text": "ᠬᠦᠦ ᠮᠢᠨᠢ᠂ ᠬᠣᠯᠠ᠎ᠠᠴᠠ ᠢᠷᠡᠪᠡ ᠦᠦ？ ᠭᠠᠯ ᠳᠡᠭᠡᠷ᠎ᠡ ᠰᠠᠭᠤᠭᠠᠳ ᠳᠤᠯᠠᠭᠠᠴᠠ᠃",
+		"wrap": 6,
+		"alignment": 2
+	},
+	{
+		"name": "column-spacing",
+		"text": "ᠬᠦᠦ ᠮᠢᠨᠢ᠂ ᠬᠣᠯᠠ᠎ᠠᠴᠠ ᠢᠷᠡᠪᠡ ᠦᠦ？ ᠭᠠᠯ ᠳᠡᠭᠡᠷ᠎ᠡ ᠰᠠᠭᠤᠭᠠᠳ ᠳᠤᠯᠠᠭᠠᠴᠠ᠃",
+		"wrap": 5,
+		"spacing": 4
+	},
+	{
+		"name": "outline",
+		"text": "ᠳᠤᠷᠠᠰᠤᠮᠵᠢ᠎ᠨᠤᠭᠤᠳ᠎ᠤᠨ",
+		"wrap": 0,
+		"outline": 1
+	},
+	{
+		"name": "empty-paragraph",
+		"text": "ᠭᠡᠭᠡ\n\nᠭᠡᠭᠡ",
+		"wrap": 0
+	}
+]

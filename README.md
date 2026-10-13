@@ -118,6 +118,9 @@ Import the font with antialiasing off, hinting none and subpixel positioning dis
 whole multiple of its design size, and keep the label at whole-pixel positions. The label
 turns the text with an exact matrix, so every pixel stays on the grid.
 
+An outline on such a font is the engine's own, as on a `Label`: without antialiasing a
+one-pixel outline comes out uneven.
+
 ## Demo
 
 Open the project in Godot and run it: a hero walks past six things, and each fills a dialogue
@@ -144,6 +147,22 @@ Text entry, rich text, a caret or selection, icons on buttons, and justified col
 `addons/bichig/orientation.gd` is generated from Unicode's `VerticalOrientation.txt`:
 
     python3 -I tools/orientation.py path/to/VerticalOrientation.txt
+
+### Tests
+
+    godot --path . --script tests/golden.gd
+
+sets every case of `tests/cases.json` (plain words, suffixes, upright marks, brackets, digits,
+wrapped paragraphs, the reveal, alignment, spacing, the outline) and compares the pixels with
+the approved ones in `tests/golden`, kept as text. It exits with an error when one differs,
+and prints both. It opens a window, because the headless renderer draws nothing.
+
+The cases are drawn in Noto Sans Mongolian, where a few pixels in a hundred may differ from
+one engine version to another, and in Gege Pixel, pixel for pixel, when the font is at
+`$GEGE_PIXEL_FONT` or in `../gege-pixel-font/dist`. After a change that is meant to be seen,
+look at it, then approve:
+
+    godot --path . --script tests/golden.gd -- --approve
 
 `tests/render.gd` sets a list of texts and writes the pixels back as text, to compare with
 another renderer.
