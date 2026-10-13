@@ -169,4 +169,4 @@ another renderer.
 
 ## License
 
-MIT. The demo font is under the SIL Open Font License.
+MIT, © 2026 L'Atelier Gege LLC. The demo font is under the SIL Open Font License.
